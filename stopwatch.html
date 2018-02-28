@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="style.css"></head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+	<title>stopwatch</title>
+	<body>
+	<div class="watch">
+	<p><span id="minute">00</span>:<span id="second">00</span>:<span id="tens">00</span></p>
+	<button id="start">start</button>
+	<button id="stop">stop</button>
+	<button id="reset">reset</button>
+	</div>
+	
+	<script>
+	window.onload=()=>{
+			let seconds=00;
+			let tens=00;
+			let minutes=00;
+		    let dispten=document.getElementById("tens");
+		    let dispsec=document.getElementById("second");
+		    let dispmin=document.getElementById("minute");
+		    let interval;
+
+		    document.getElementById("start").onclick=()=>{
+		    	clearInterval(interval);
+		    	interval=setInterval(startTimer,10);
+		    }
+		    document.getElementById("stop").onclick=()=>clearInterval(interval);
+		    document.getElementById("reset").onclick=()=>{
+		    	clearInterval(interval);
+		    	tens="00";
+		    	seconds="00";
+		    	minutes="00";
+		    	dispten.innerHTML=tens;
+		    	dispsec.innerHTML=seconds;
+		    	dispmin.innerHTML=minutes;
+
+
+		    }
+		    function startTimer()
+		    {
+		    	tens++;
+
+		    	if(tens<9)
+		    	{
+		    		dispten.innerHTML="0"+tens;
+		    	}
+		    	if(tens>9)
+		    	{
+		    		dispten.innerHTML=tens;
+		    	}
+		    	if(tens>99)
+		    	{
+		    		console.log("seconds");
+		    		seconds++;
+		    		dispsec.innerHTML="0"+seconds;
+		    		tens=0;
+		    		dispten.innerHTML="0"+0;
+
+		    	}
+		    	if(seconds>9 && seconds<60)
+		    	{
+		    		dispsec.innerHTML=seconds;
+
+		    	}
+		    	else if(seconds>=60)
+		    	{   minutes++;
+		    		dispmin.innerHTML="0"+minutes;
+		    		seconds=0;
+		    		dispsec.innerHTML="0"+0;
+		    	}
+		    }
+		}
+		
+		
+	</script>
+	</body>
+	
+	</html>
+
+	

@@ -1,0 +1,23 @@
+
+	.watch
+	{
+		background-color:gray;
+		color:white;
+		text-align: center;
+		padding: 200px;
+	}
+	#minute,#second,#tens
+	{
+		font-size: 2em;
+	}
+	button
+	{
+       background: $base-color;
+       color: $white;
+       font-size: 1.7em;
+
+	}
+	body{
+		background-color:gray;
+	}
+		
